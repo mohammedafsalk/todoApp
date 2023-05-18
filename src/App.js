@@ -1,6 +1,11 @@
 function App() {
-  return <h1>i am testing this once again</h1>;
+  const data = "welcome";
+  return (
+    <div>
+      <h1 style={{ color: "red" }}>hello world</h1>
+      <p>this is data - {data}</p>
+    </div>
+  );
 }
 
-export default App
-
+export default App;
