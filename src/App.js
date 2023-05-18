@@ -4,10 +4,18 @@ function App() {
   const data = "welcome";
   return (
     <div>
-      <h1 className="color">hello world</h1>
-      <p>this is data - {data}</p>
+      <Hello />
+      <Show item={data} />
     </div>
   );
 }
 
 export default App;
+
+function Hello() {
+  return <h1 className="color">hello world</h1>;
+}
+
+function Show(props) {
+  return <p>this is data - {props.item}</p>;
+}
