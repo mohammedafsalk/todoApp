@@ -1,8 +1,10 @@
+import "./App.css";
+
 function App() {
   const data = "welcome";
   return (
     <div>
-      <h1 style={{ color: "red" }}>hello world</h1>
+      <h1 className="color">hello world</h1>
       <p>this is data - {data}</p>
     </div>
   );
