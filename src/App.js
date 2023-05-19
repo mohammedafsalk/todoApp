@@ -1,21 +1,16 @@
 import "./App.css";
 
 function App() {
-  const data = "welcome";
+  let count = 0;
+  function add() {
+    count = count++;
+  }
   return (
     <div>
-      <Hello />
-      <Show item={data} />
+      <button onClick={add}>Add</button>
+      <h1>Counter:{count}</h1>
     </div>
   );
 }
 
 export default App;
-
-function Hello() {
-  return <h1 className="color">hello world</h1>;
-}
-
-function Show(props) {
-  return <p>this is data - {props.item}</p>;
-}
