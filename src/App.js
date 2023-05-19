@@ -1,9 +1,9 @@
-import "./App.css";
+import { useState } from "react";
 
 function App() {
-  let count = 0;
+  const [count, setCount] = useState(0);
   function add() {
-    count = count++;
+    setCount(count + 1);
   }
   return (
     <div>
