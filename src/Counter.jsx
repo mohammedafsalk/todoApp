@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function Counter() {
+function Counter(props) {
   return (
-    <div>Counter</div>
-  )
+    <div>
+      <h1>Counter:{props.count}</h1>
+    </div>
+  );
 }
 
-export default Counter
+export default Counter;
