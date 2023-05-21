@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./style.css";
+import Header from "./components/Header";
 import Form from "./components/Form";
+import ToDoList from "./components/ToDoList";
 
 function App() {
+  const [input, setInput] = useState("");
   return (
     <>
-      <header>
-        <h1>Todo List</h1>
-      </header>
-      <Form />
+      <Header />
+      <Form setInput={setInput} />
+      <ToDoList />
     </>
   );
 }
