@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       <Form toDo={toDo} setToDo={setToDo} input={input} setInput={setInput} />
-      <ToDoList toDo={toDo} />
+      <ToDoList toDo={toDo} setToDo={setToDo} />
     </>
   );
 }

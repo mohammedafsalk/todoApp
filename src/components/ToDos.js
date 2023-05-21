@@ -1,17 +1,31 @@
 import React from "react";
 
-function ToDos({ title }) {
-//   const deleteHandler = () => {
+function ToDos({ title, toDo, value, setToDo }) {
+  const deleteHandler = () => {
+    setToDo(toDo.filter((elem) => elem.id !== value.id));
+  };
 
-//   };
+  const toggler = () => {
+    setToDo(
+      toDo.map((elem) => {
+        if (elem.id === value.id) {
+          return {
+            ...elem,
+            status: !elem.status,
+          };
+        }
+        return elem;
+      })
+    );
+  };
 
   return (
     <div className="todo">
-      <li className="todo-item">{title}</li>
-      <button className="complete-btn">
+      <li className={`todo-item ${value.status ? "completed" :""}`}>{title}</li>
+      <button onClick={toggler} className="complete-btn">
         <i className="fas fa-check"></i>
       </button>
-      <button className="trash-btn">
+      <button onClick={deleteHandler} className="trash-btn">
         <i className="fas fa-trash"></i>
       </button>
     </div>
