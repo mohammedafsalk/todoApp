@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./style.css";
 import Header from "./components/Header";
 import Form from "./components/Form";
@@ -7,11 +7,39 @@ import ToDoList from "./components/ToDoList";
 function App() {
   const [input, setInput] = useState("");
   const [toDo, setToDo] = useState([]);
+  const [filter, setFilter] = useState("All");
+  const [filteredToDos, setFilteredToDos] = useState([]);
+
+  useEffect(() => {
+    filterValues();
+  }, [toDo,filter]);
+
+  const filterValues = () => {
+    switch (filter) {
+      case "completed":
+        setFilteredToDos(toDo.filter((item) => item.record === true));
+        break;
+      case "uncompleted":
+        setFilteredToDos(toDo.filter((item) => item.record === false));
+        break;
+      default:
+        setFilteredToDos(toDo);
+        break;
+    }
+  };
+
   return (
     <>
       <Header />
-      <Form toDo={toDo} setToDo={setToDo} input={input} setInput={setInput} />
-      <ToDoList toDo={toDo} setToDo={setToDo} />
+      <Form
+        toDo={toDo}
+        setToDo={setToDo}
+        input={input}
+        setInput={setInput}
+        filter={filter}
+        setFilter={setFilter}
+      />
+      <ToDoList toDo={toDo} setToDo={setToDo} filteredToDos={filteredToDos} />
     </>
   );
 }

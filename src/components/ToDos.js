@@ -11,7 +11,7 @@ function ToDos({ title, toDo, value, setToDo }) {
         if (elem.id === value.id) {
           return {
             ...elem,
-            status: !elem.status,
+            record: !elem.record,
           };
         }
         return elem;
@@ -21,7 +21,7 @@ function ToDos({ title, toDo, value, setToDo }) {
 
   return (
     <div className="todo">
-      <li className={`todo-item ${value.status ? "completed" :""}`}>{title}</li>
+      <li className={`todo-item ${value.record ? "completed" :""}`}>{title}</li>
       <button onClick={toggler} className="complete-btn">
         <i className="fas fa-check"></i>
       </button>
