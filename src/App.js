@@ -9,7 +9,6 @@ function App() {
   const [toDo, setToDo] = useState([]);
   const [filter, setFilter] = useState("All");
   const [filteredToDos, setFilteredToDos] = useState([]);
-
   useEffect(() => {
     filterValues();
   }, [toDo,filter]);
